@@ -1,0 +1,58 @@
+
+<style>
+
+  :host {
+    position:       absolute;
+    top:            0px;
+    left:           0px;
+    right:          0px;
+    bottom:         0px;
+    pointer-events: none;
+    --img-transition-distance: 288px; /* set to exact measurements on boot and window resize */
+  }
+
+  .img-wrapper {
+    position:       relative;
+    height:         100%;
+    width:          115px;
+    border-radius:  8px;
+    pointer-events: auto;
+    transform:      translateX(-1px);
+  }
+
+  .img-transition {
+    transition: transform 0.3s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1));
+  }
+
+  .img-right {
+    /* move img all the way to the right side
+       the card div width minus the img width 
+       plus 1px to hide poor cropping of each img */
+    transform: translateX(calc(var(--img-transition-distance) - 100%));
+  }
+
+  #img {
+    height:           100%;
+    width:            100%;
+    border-radius:    8px;
+    overflow:         hidden;
+    background-color: white
+  }
+
+</style>
+
+
+<div id="imgWrapper" 
+     class="img-wrapper img-transition"
+     on-click="__cardImageClicked"
+     on-down="__cardImageOnDown"
+     on-track="__cardImageTracked"
+     on-transitionend="__cardImageTransitionend">
+  <iron-image id="img"
+              src="[[_lazyImage]]"
+              fade
+              preload
+              sizing="contain">
+  </iron-image>
+  <asg-shop-card-badges card="[[card]]"></asg-shop-card-badges>
+</div>
