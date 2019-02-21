@@ -69,20 +69,16 @@
     transition-delay: 0.05s;
   }
 
-  .delay-2 {
-    transition-delay: 0.1s;
-  }
-
-  .delay-3 {
-    transition-delay: 0.15s
-  }
-
   .delay-4 {
     transition-delay: 0.2s;
   }
 
   .delay-5 {
     transition-delay: 0.25s;
+  }
+
+  .delay-6 {
+    transition-delay: 0.3s;
   }
  
   .bold {
@@ -97,11 +93,6 @@
 
   .secondary-text {
     @apply --single-line-truncate-mixin;
-  }
-
-  iron-icon {
-    margin-right: 4px;
-    min-width:    24px;
   }
 
   .multi-face-text {
@@ -136,124 +127,42 @@
     opacity: 0;
   }
 
-  #condition-btn-wrapper {
-    display:     inline-flex;
-    align-items: center;
-    position:    relative;
-    height:      40px;
-    color:       var(--dark-color);
-  }
-
-  #foilToggle {
-    height:  40px;
-    width:   88px;
-    z-index: 1; /* ensure click events are not consumed by the paper-input-container below the toggle */
-    --paper-toggle-button-checked-bar-color:    var(--dark-color);
-    --paper-toggle-button-checked-button-color: var(--dark-color);
-    --paper-toggle-button-checked-ink-color:    var(--dark-color);
-    --paper-toggle-button-label-color:          var(--dark-color);
-  }
-
-  #foilToggle[checked] {
-    font-weight: bold;
-  }
-
-  #qty-wrapper {
-    display:     flex;
-    align-items: center;
-    position:    relative;
-    height:      40px;    
-    color:       var(--dark-color);
-  }
-
-  .hide-transition {    
-    transition: transform 0.3s var(--spriteful-ease, ease-out), opacity 0.2s ease-in;
-    opacity:    1;
-  }
-
-  .qty-input-container {
-    display:          flex;
-    align-items:      center;
-    position:         absolute;
-    top:              0px;
-    right:            0px;
-    bottom:           0px;
-    left:             0px;    
-    background-color: white;
-  }
-
   .hide {    
     transform: translateY(4px);
     opacity:   0;
-  }
-
-  #qty {
-    position: relative;
-    top:     -8px;
-    --paper-input-container: {
-      width: 40px;
-    };
-    --paper-input-container-focus-color: var(--dark-color);
-    --paper-input-container-underline-focus: { /* broken paper-input fix (3.0.0-pre.1) */
-      transition: transform 0.25s ease-in-out;
-      width:      40px;
-    };
-    --paper-input-container-underline: {
-      /*width: 20px;*/
-      display: none;
-    };
-    --paper-input-container: {
-      padding: 0px;
-    };
-    --paper-input-container-label: {
-      display: none;
-    };
-    --paper-input-container-input: {
-      width:      40px;
-      text-align: center;
-      color:      var(--dark-color);
-    };
-    --paper-input-suffix: {
-      font-size:   14px;
-      white-space: nowrap;
-      text-align:  start;
-      color:       var(--dark-color);
-    };
-  }
-
-  #bottom-content {
-    display:         flex;
-    justify-content: space-between;
-    align-items:     center;
-    color:           var(--dark-color);
   }
 
   .disabled {
     opacity: 0.5;
   }
 
+  #actions {
+    width:   100%;
+    padding: 0px;
+  }
+
+  #controls-wrapper {
+    position:      relative;
+    overflow:      hidden;
+    height:        100%;
+    width:         100%;
+    border-radius: 8px;
+  }
+  
   .action-btns {
     margin-left: auto;
     color:       var(--accent-color);
+    position:    absolute;
+    bottom:      0px;
+    right:       120px;
   }
 
   .add-to-cart-container {
     display: inline-block;
   }
 
-  #condition-wrapper {
-    position:       relative;
-    overflow:       hidden;
-    height:         100%;
-    width:          100%;
-    border-radius:  8px;
-    pointer-events: none;
-  }
-
-  #condition {
-    /* make sure to cover toggle button which must also have z-index: 1 set */
-    z-index:        1;
-    pointer-events: auto;
+  .add-to-cart-container[hidden] {
+    display: none;
   }
 
 </style>
@@ -266,7 +175,8 @@
   </div>
   <asg-shop-card-set id="set" 
                      class="slide-up entry delay-1" 
-                     card="[[card]]">
+                     card="[[card]]"
+                     is-white="true">
   </asg-shop-card-set>
   <div id="multiFaceText" 
        class$="secondary slide-up entry delay-4 multi-face-text [[__computeMultiFaceTextClass(card.card_faces)]]">
@@ -282,85 +192,32 @@
 </div>
 
 <div id="actions" class="content">
-  <div id="condition-btn-wrapper" 
-       on-click="__conditionButtonClicked">
-    <iron-icon id="conditionBtn" 
-               class="slide-up" 
-               icon="asg-icons:remove-red-eye">
-    </iron-icon>
-    <span id="conditionText" class="secondary-text slide-up delay-1">[[_condition]]</span>
-    <paper-ripple></paper-ripple>
-  </div>
-  <paper-toggle-button id="foilToggle"
-                       class="slide-up delay-1"
-                       checked="[[__computeFoilCheckedDefault(card)]]"
-                       on-checked-changed="__foilToggleChanged">
-    Foil
-  </paper-toggle-button>
 
-  <div id="qty-wrapper">    
-    <div id="qtyNotAvail" 
-         class="disabled slide-up delay-2">
-      Not Available
-    </div>
-    <div class$="qty-input-container hide-transition [[__computeInputHideClass(_availableQuantity, _conditionPrice)]]">
-      <span id="qtyLabel" 
-            class="slide-up delay-2">
-        Qty
-      </span>
-      <paper-input id="qty"
-                   class="slide-up delay-3"
-                   allowed-pattern="[0-9]"
-                   auto-validate
-                   disabled="[[__computeInputDisabled(_availableQuantity, _conditionPrice)]]"
-                   min="1"
-                   max="[[_availableQuantity]]"
-                   maxlength="3"
-                   tabindex="0"
-                   type="tel"
-                   on-change="__qtyInputChanged"
-                   value="[[__computeQtyVal(card, _quantity)]]">      
-      </paper-input>
-      <div id="available" 
-           class="slide-up delay-4">
-        of [[_availableQuantity]] Avail
-      </div>
-    </div>
+  <div id="controls-wrapper">
+    <asg-shop-card-controls id="controls" 
+                            card="[[card]]" 
+                            selector-from="top" 
+                            search>
+    </asg-shop-card-controls>
   </div>
 
-  <div id="bottom-content">
-    <span class$="hide-transition [[__computePriceHideClass(_conditionPrice)]]">
-      <span id="price" 
-            class="bold slide-up delay-3">
-        <span class$="[[__computePriceDisabledClass(_availableQuantity)]]">
-          [[_conditionPrice]]
-        </span>
-      </span>
-    </span>
-    <div class="action-btns">
-      <div class$="add-to-cart-container hide-transition [[__computeInputHideClass(_availableQuantity, _conditionPrice)]]">
-        <paper-icon-button id="addToCartBtn"
-                           class="slide-up delay-4"
-                           disabled="[[__computeInputDisabled(_availableQuantity, _conditionPrice)]]"
-                           icon="asg-icons:add-shopping-card" 
-                           on-click="__addToCardButtonClicked">
-        </paper-icon-button>
-      </div>
-      <paper-icon-button id="detailsBtn"
+  <div class="action-btns">
+    <div class="add-to-cart-container">
+      <paper-icon-button id="addToCartBtn"
                          class="slide-up delay-5"
-                         icon="asg-icons:description" 
-                         on-click="__detailsButtonClicked">
+                         disabled="[[_disableCart]]"
+                         icon="app-icons:add-shopping-cart" 
+                         on-click="__addToCardButtonClicked">
       </paper-icon-button>
     </div>
-  </div>  
-  <div id="actionsMask" class="fade-gradient-mask"></div>
-</div>
+    <paper-icon-button id="detailsBtn"
+                       class="slide-up delay-6"
+                       icon="asg-icons:description" 
+                       on-click="__detailsButtonClicked">
+    </paper-icon-button>
+  </div>
 
-<div id="condition-wrapper">
-  <asg-shop-condition-selector id="condition"
-                               card="[[card]]" 
-                               foil="[[_foilChecked]]">
-  </asg-shop-condition-selector>
+  <div id="actionsMask" class="fade-gradient-mask"></div>
 </div>
 
 <asg-shop-card-item-image id="img"

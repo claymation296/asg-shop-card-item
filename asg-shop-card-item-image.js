@@ -7,15 +7,15 @@
  * @demo demo/index.html
  */
 import {
-	PolymerElement, 
-	html
-}  								from '@polymer/polymer/polymer-element.js';
+  PolymerElement, 
+  html
+}                 from '@polymer/polymer/polymer-element.js';
 import {
-	GestureEventListeners
-} 								from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+  GestureEventListeners
+}                 from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 import {
-	SpritefulMixin
-}        					from '@spriteful/spriteful-mixin/spriteful-mixin.js';
+  SpritefulMixin
+}                 from '@spriteful/spriteful-mixin/spriteful-mixin.js';
 import {
   isOnScreen,
   listen,
@@ -102,7 +102,7 @@ class ASGShopCardItemImage extends SpritefulMixin(GestureEventListeners(PolymerE
       '__currentXChanged(_currentX)',
       '__cardChanged(card)'
     ];
-  }
+  }  
 
 
   connectedCallback() {
@@ -165,10 +165,23 @@ class ASGShopCardItemImage extends SpritefulMixin(GestureEventListeners(PolymerE
   // lazy load image
   async __cardChanged() {
     this._currentX = this._leftX;
+    try {
     await isOnScreen(this);
     this._lazyImage = this._image;
+    }
+    catch (error) {
+     
+      console.error(error);
+    }
   }
-
+  
+  // fallback image on image failure
+  __ironImageError(event) {
+    if (event.detail.value) {
+      this._lazyImage = 'images/fallback.png';
+    }
+  }
+  
 
   async __measureWidthForImgTransition() {
     await schedule();
