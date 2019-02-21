@@ -49,10 +49,12 @@
      on-track="__cardImageTracked"
      on-transitionend="__cardImageTransitionend">
   <iron-image id="img"
+              alt="Magic: The Gathering playing card"
               src="[[_lazyImage]]"
               fade
               preload
-              sizing="contain">
+              sizing="contain"
+              on-error-changed="__ironImageError">
   </iron-image>
   <asg-shop-card-badges card="[[card]]"></asg-shop-card-badges>
 </div>
