@@ -176,10 +176,10 @@
     "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-demo-helpers@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.0.2.tgz#ba2503555b6166e75016e072f357cee15b44b03c"
-  integrity sha512-VqGEIOEXPgx9G6uLfvnzXVib6sE6lJENV3gywoBTstrMCrFCSGpmTMVAovpHyoDw8Ceu6LeoVuMsxaT1mCEirg==
+"@polymer/iron-demo-helpers@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.1.0.tgz#89dbbc019f9200331d77c94144d8afc9920dc122"
+  integrity sha512-C+U9ghRnjluJNLIga7r30YGNuQeCu7E7mOOcjgWOL/bMfWvrnbr2TcYoO4DXHO6NdUfV6daGtRA1VwG3d8H39g==
   dependencies:
     "@polymer/font-roboto" "^3.0.0-pre.25"
     "@polymer/iron-flex-layout" "^3.0.0-pre.25"
@@ -339,6 +339,13 @@
   dependencies:
     "@webcomponents/shadycss" "^1.5.2"
 
+"@polymer/polymer@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.2.0.tgz#b41fddec4ecac63b12936b93726678d23add7afd"
+  integrity sha512-L6uV1oM6T6xbwbVx6t3biG5T2VSSB03LxnIrUd9M2pr6RkHVPFHJ37pC5MUwBAEhkGFJif7eks7fdMMSGZTeEQ==
+  dependencies:
+    "@webcomponents/shadycss" "^1.8.0"
+
 "@polymer/prism-element@^3.0.0-pre.25":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/prism-element/-/prism-element-3.0.1.tgz#b35d53eec9ecea5e5fec7c82c7e978e760e53501"
@@ -352,10 +359,10 @@
   resolved "https://registry.yarnpkg.com/@polymer/test-fixture/-/test-fixture-4.0.2.tgz#2f4777ecdcfb22ee000db35a05e0edf27c722c19"
   integrity sha512-tLX8tFE4mkc4p84YG5239G0hbgTVv2irZYrSyO0OblUqIRbRoCPmbydm3HRFQkJeAB3rPCtyeZ2roJULsmTG3A==
 
-"@spriteful/asg-icons@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.11.tgz#c0bade85ff9eb614918b3f21c4c7cc778c343814"
-  integrity sha512-/QrOGQDVrTwVyRsCEXrF1oRwoA2y42cDNer52mkN9obX019gQeUD0w3+R9ONhVAZYmBLy2xrnQewk/afBWCkUQ==
+"@spriteful/asg-icons@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.13.tgz#56db44c348a37ddd3393cca23389ffd0157c4b81"
+  integrity sha512-8joMbh5KbTSKf+m8yJaIWa+zw4lSg/cTdynRgLMH0uuWjXAD11XrNC8+xBoibDpBCgQnaVO9XnAAJzgge1bjuQ==
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/polymer" "^3.1.0"
@@ -432,7 +439,7 @@
     comlinkjs "^3.1.1"
     firebase "^5.7.2"
 
-"@webcomponents/shadycss@^1.5.2":
+"@webcomponents/shadycss@^1.5.2", "@webcomponents/shadycss@^1.8.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.0.tgz#8450465037370d4f5c32e801bb2554a7cf2f5037"
   integrity sha512-g8Xa+6RSEME4g/wLJW4YII0eq15rvXp76RxPAuv7hx+Bdoi7GzZJ/EoZOUfyIbqAsQbII1TcWD4/+Xhs5NcM1w==
@@ -1599,10 +1606,10 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-6.0.1.tgz#c287da87913fa0edc4c44850ba8bc4fdbf20d3ea"
-  integrity sha512-tQzCxWqxSD6Oyg5r7Ptbev0yAMD8p+Vfh4snPFuiUsWqYj0eVYTDT2DkEY307FTj0WRlIWN9rWMMAUzRmijgVQ==
+mocha@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-6.0.2.tgz#cdc1a6fdf66472c079b5605bac59d29807702d2c"
+  integrity sha512-RtTJsmmToGyeTznSOMoM6TPEk1A84FQaHIciKrRqARZx+B5ccJ5tXlmJzEKGBxZdqk9UjpRsesZTUkZmR5YnuQ==
   dependencies:
     ansi-colors "3.2.3"
     browser-stdout "1.3.1"

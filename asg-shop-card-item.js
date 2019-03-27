@@ -103,22 +103,24 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
     const {foil, notFoil} = card;
     // favor sale price over market price
     const keys = Object.keys(foil); // foil and notFoil have same keys
-    const getSales = obj => 
-                       keys.
-                         map(key     => obj[key].sale).
-                         filter(sale => sale && sale !== '0').
-                         map(sale    => Number(sale));
-    const foilSales    = getSales(foil);
-    const notFoilSales = getSales(notFoil);
-    const allSales     = [...foilSales, ...notFoilSales];
-    const getPrice = ({price, sale}, type) => {
-      if (type === 'low') {
-        return Math.min(Number(price), ...allSales).toFixed(2);
-      }
-      return Math.max(Number(price), ...allSales).toFixed(2);
-    };
-    const low  = getPrice(notFoil['Heavily Played'], 'low');
-    const high = getPrice(notFoil['Near Mint'], 'high');
+    const getPrices = (type, obj) => 
+                        keys.
+                          map(key      => obj[key][type]).
+                          filter(price => price && price !== '0').
+                          map(price    => Number(price));
+
+    const foilSales     = getPrices('sale', foil);
+    const notFoilSales  = getPrices('sale', notFoil);
+    const foilPrices    = getPrices('price', foil);
+    const notFoilPrices = getPrices('price', notFoil);
+    const allPrices     = [
+      ...foilSales, 
+      ...notFoilSales, 
+      ...foilPrices, 
+      ...notFoilPrices
+    ];
+    const low  = Math.min(...allPrices).toFixed(2);
+    const high = Math.max(...allPrices).toFixed(2);
     if (!high || high < 0.01) { return 'Pricing Not Available'; }
     return `$${low} - $${high}`;
   }
