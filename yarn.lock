@@ -367,15 +367,15 @@
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/polymer" "^3.1.0"
 
-"@spriteful/asg-shop-card-shared-elements@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.2.tgz#57cc99ab27b117b24b2e182e610f10dcc8fd12a5"
-  integrity sha512-zJheLNcRfWbAncE83H4srBrgHCdr0gMzUx+6muVE1L00KugQ9OhhVBMNUMXqUY91VSN6uJPnfEBX1ENBjBMBIQ==
+"@spriteful/asg-shop-card-shared-elements@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.3.tgz#e02c4bae64865820d5f9f8c1e31bd2df66be990d"
+  integrity sha512-yOaCLTyKjJMbZC+G9NWQaP/nFxQXqme8pF34pZq1uKXoNrWKx3q29lZwhU8aSfgIMoJORCHYaMUWoNSE97XaZA==
   dependencies:
     "@polymer/iron-icon" "^3.0.1"
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/iron-selector" "^3.0.1"
-    "@spriteful/lambda" "^1.3.4"
+    "@spriteful/lambda" "^1.3.5"
     "@spriteful/services" "^2.1.3"
     "@spriteful/spriteful-element" "^1.0.4"
     "@spriteful/utils" "^1.2.1"
@@ -389,6 +389,11 @@
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@spriteful/lambda/-/lambda-1.3.4.tgz#1f2110ee41e39f3b19f1e64b7acc689c7930a783"
   integrity sha512-+o9/2iq6wA1E4DlUPKUeH9GS7ow3uP/w2bHs4vN8aZlr+e+a3G9sppjl55eIZBCNMQOi9756beGyO0VgU3fcxQ==
+
+"@spriteful/lambda@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@spriteful/lambda/-/lambda-1.3.5.tgz#14cef52aff8144ab1af6cdd500debb8daddf4564"
+  integrity sha512-e3lnmVRce1bO6Ygw3V+rmKZGog2+OyEJYmC9h/p0vO63Y8alqY+VFbowkvYl7PJUCo+AlqLm9GrdPbAQTn+KrQ==
 
 "@spriteful/services@^2.1.3":
   version "2.1.3"
