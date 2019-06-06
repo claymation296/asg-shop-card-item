@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/asg-shop-card-item",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Mtg e-commerce card small layout",
   "main": "asg-shop-card-item.js",
   "scripts": {
@@ -18,24 +18,24 @@
   "homepage": "https://github.com/spriteful/asg-shop-card-item#readme",
   "dependencies": {
     "@polymer/iron-icon": "^3.0.1",
-    "@polymer/iron-image": "^3.0.1",
+    "@polymer/iron-image": "^3.0.2",
     "@polymer/paper-icon-button": "^3.0.2",
-    "@polymer/paper-input": "^3.0.1",
+    "@polymer/paper-input": "^3.0.2",
     "@polymer/paper-ripple": "^3.0.1",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@polymer/polymer": "^3.2.0",
     "@spriteful/asg-icons": "^1.0.13",
-    "@spriteful/asg-shop-card-shared-elements": "^1.1.4",
+    "@spriteful/asg-shop-card-shared-elements": "^1.1.5",
     "@spriteful/spriteful-element": "^1.0.4",
     "@spriteful/spriteful-mixin": "^1.0.6",
-    "@spriteful/utils": "^1.2.1"
+    "@spriteful/utils": "^1.2.4"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
     "chai": "^4.2.0",
-    "mocha": "^6.0.2",
-    "wct-mocha": "^1.0.0"
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
   }
 }
