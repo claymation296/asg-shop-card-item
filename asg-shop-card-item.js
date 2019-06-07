@@ -92,6 +92,18 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
     );    
   }
 
+
+  __computeOutOfStockClass(card) {
+    if (!card) { return ''; }
+    const {foil, notFoil} = card;
+    const foilQtys    = Object.values(foil).map(obj => obj.qty);
+    const notFoilQtys = Object.values(notFoil).map(obj => obj.qty);
+    const qtys        = [...foilQtys, ...notFoilQtys];
+    const inStock     = qtys.some(qty => 
+                          typeof qty === 'number' && qty > 0);
+    return inStock ? '' : 'out-of-stock';
+  }
+
   
   __computeMultiFaceTextClass(faces) {
     return faces ? 'show-multi-face-text' : '';
@@ -134,7 +146,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
   //uses asg-shop-card-controls to get all info on selected card then fires to spriteful-app.js
   async __addToCardButtonClicked() {
     try {
-      if(!this.$.detailsBtn.classList.contains('entry')) { return; }
+      if (!this.$.detailsBtn.classList.contains('entry')) { return; }
       await this.clicked();
       const card = this.$.controls.addSelectedToCard(); // mixin
       this.fire('asg-shop-card-item-add-to-cart', {card});

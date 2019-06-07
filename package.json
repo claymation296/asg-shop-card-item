@@ -24,7 +24,7 @@
     "@polymer/paper-ripple": "^3.0.1",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@polymer/polymer": "^3.2.0",
-    "@spriteful/asg-icons": "^1.0.13",
+    "@spriteful/asg-icons": "^1.0.14",
     "@spriteful/asg-shop-card-shared-elements": "^1.1.5",
     "@spriteful/spriteful-element": "^1.0.4",
     "@spriteful/spriteful-mixin": "^1.0.6",
