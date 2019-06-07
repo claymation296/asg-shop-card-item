@@ -17,6 +17,15 @@
     display: none;
   }
 
+  #container {
+    position: relative;
+    height:   100%;
+  }
+
+  .out-of-stock {
+    opacity: 0.6;
+  }
+
   .content {
     position:   absolute;
     top:        0px;
@@ -168,59 +177,63 @@
 </style>
 
 
-<div id="description" class="content show-content">
-  <div id="title" 
-       class="title bold slide-up entry">
-    [[card.name]]
-  </div>
-  <asg-shop-card-set id="set" 
-                     class="slide-up entry delay-1" 
-                     card="[[card]]"
-                     is-white="true">
-  </asg-shop-card-set>
-  <div id="multiFaceText" 
-       class$="secondary slide-up entry delay-4 multi-face-text [[__computeMultiFaceTextClass(card.card_faces)]]">
-    Multi-faced
-  </div>
-  <div id="priceRange" 
-       class="bold slide-up entry delay-5">
-    [[__computePriceRange(card)]]
-  </div>
-  <div id="descriptionMask" 
-       class="fade-gradient-mask hide-fade-gradient-mask">
-  </div>
-</div>
+<div id="container" class$="[[__computeOutOfStockClass(card)]]">
 
-<div id="actions" class="content">
-
-  <div id="controls-wrapper">
-    <asg-shop-card-controls id="controls" 
-                            card="[[card]]" 
-                            selector-from="top" 
-                            search>
-    </asg-shop-card-controls>
+  <div id="description" class="content show-content">
+    <div id="title" 
+         class="title bold slide-up entry">
+      [[card.name]]
+    </div>
+    <asg-shop-card-set id="set" 
+                       class="slide-up entry delay-1" 
+                       card="[[card]]"
+                       is-white="true">
+    </asg-shop-card-set>
+    <div id="multiFaceText" 
+         class$="secondary slide-up entry delay-4 multi-face-text [[__computeMultiFaceTextClass(card.card_faces)]]">
+      Multi-faced
+    </div>
+    <div id="priceRange" 
+         class="bold slide-up entry delay-5">
+      [[__computePriceRange(card)]]
+    </div>
+    <div id="descriptionMask" 
+         class="fade-gradient-mask hide-fade-gradient-mask">
+    </div>
   </div>
 
-  <div class="action-btns">
-    <div class="add-to-cart-container">
-      <paper-icon-button id="addToCartBtn"
-                         class="slide-up delay-5"
-                         disabled="[[_disableCart]]"
-                         icon="app-icons:add-shopping-cart" 
-                         on-click="__addToCardButtonClicked">
+  <div id="actions" class="content">
+
+    <div id="controls-wrapper">
+      <asg-shop-card-controls id="controls" 
+                              card="[[card]]" 
+                              selector-from="top" 
+                              search>
+      </asg-shop-card-controls>
+    </div>
+
+    <div class="action-btns">
+      <div class="add-to-cart-container">
+        <paper-icon-button id="addToCartBtn"
+                           class="slide-up delay-5"
+                           disabled="[[_disableCart]]"
+                           icon="app-icons:add-shopping-cart" 
+                           on-click="__addToCardButtonClicked">
+        </paper-icon-button>
+      </div>
+      <paper-icon-button id="detailsBtn"
+                         class="slide-up delay-6"
+                         icon="asg-icons:description" 
+                         on-click="__detailsButtonClicked">
       </paper-icon-button>
     </div>
-    <paper-icon-button id="detailsBtn"
-                       class="slide-up delay-6"
-                       icon="asg-icons:description" 
-                       on-click="__detailsButtonClicked">
-    </paper-icon-button>
+
+    <div id="actionsMask" class="fade-gradient-mask"></div>
   </div>
 
-  <div id="actionsMask" class="fade-gradient-mask"></div>
-</div>
+  <asg-shop-card-item-image id="img"
+                            card="[[card]]"
+                            parent="[[_cardImageParent]]">
+  </asg-shop-card-item-image>
 
-<asg-shop-card-item-image id="img"
-                          card="[[card]]"
-                          parent="[[_cardImageParent]]">
-</asg-shop-card-item-image>
+</div>

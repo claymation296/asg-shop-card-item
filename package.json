@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/asg-shop-card-item",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Mtg e-commerce card small layout",
   "main": "asg-shop-card-item.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@polymer/paper-ripple": "^3.0.1",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@polymer/polymer": "^3.2.0",
-    "@spriteful/asg-icons": "^1.0.13",
+    "@spriteful/asg-icons": "^1.0.14",
     "@spriteful/asg-shop-card-shared-elements": "^1.1.5",
     "@spriteful/spriteful-element": "^1.0.4",
     "@spriteful/spriteful-mixin": "^1.0.6",

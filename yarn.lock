@@ -359,13 +359,13 @@
   resolved "https://registry.yarnpkg.com/@polymer/test-fixture/-/test-fixture-4.0.2.tgz#2f4777ecdcfb22ee000db35a05e0edf27c722c19"
   integrity sha512-tLX8tFE4mkc4p84YG5239G0hbgTVv2irZYrSyO0OblUqIRbRoCPmbydm3HRFQkJeAB3rPCtyeZ2roJULsmTG3A==
 
-"@spriteful/asg-icons@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.13.tgz#56db44c348a37ddd3393cca23389ffd0157c4b81"
-  integrity sha512-8joMbh5KbTSKf+m8yJaIWa+zw4lSg/cTdynRgLMH0uuWjXAD11XrNC8+xBoibDpBCgQnaVO9XnAAJzgge1bjuQ==
+"@spriteful/asg-icons@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.14.tgz#4403e1dcde4f1aeacc62af9bdb7482cd407c42d8"
+  integrity sha512-VZRFHWVJPjKrGBjey8L8idIRTGc0bC0O++qIu7jLX8dO3fYRad/K33++LEy3KpjsNEHJ57x1/z8KWVt6D+I5IQ==
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.1"
-    "@polymer/polymer" "^3.1.0"
+    "@polymer/polymer" "^3.2.0"
 
 "@spriteful/asg-shop-card-shared-elements@^1.1.5":
   version "1.1.5"
