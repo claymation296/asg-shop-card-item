@@ -177,7 +177,7 @@
 </style>
 
 
-<div id="container" class$="[[__computeOutOfStockClass(card)]]">
+<div id="container" class$="[[__computeOutOfStockClass(card, buylist)]]">
 
   <div id="description" class="content show-content">
     <div id="title" 
@@ -208,7 +208,8 @@
       <asg-shop-card-controls id="controls" 
                               card="[[card]]" 
                               selector-from="top" 
-                              search>
+                              search
+                              buylist=[[buylist]]>
       </asg-shop-card-controls>
     </div>
 

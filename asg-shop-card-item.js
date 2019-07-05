@@ -35,6 +35,11 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
 
   static get properties() {
     return {
+
+      buylist: {
+        type: Boolean,
+        value: false
+      },
       // passed into asg-shop-card-item-image
       _cardImageParent: Object,
 
@@ -43,6 +48,8 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       _quantity: Number,
 
       _cardImg: Object
+
+      
       
     };
   }
@@ -94,6 +101,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
 
 
   __computeOutOfStockClass(card) {
+    if (this.buylist) { return; }
     if (!card) { return ''; }
     const {foil, notFoil} = card;
     const foilQtys    = Object.values(foil).map(obj => obj.qty);
@@ -139,6 +147,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
 
 
   __hideAddToCart(event) {
+    if (this.buylist) { return; }
     const {disabled} = event.detail;
     this._disableCart = disabled;
   }
@@ -149,6 +158,10 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       if (!this.$.detailsBtn.classList.contains('entry')) { return; }
       await this.clicked();
       const card = this.$.controls.addSelectedToCard(); // mixin
+      if (this.buylist) {
+        this.fire('asg-shop-card-item-buylist-add-to-cart', {card, buylist: true});
+        return;
+      }
       this.fire('asg-shop-card-item-add-to-cart', {card});
     }
     catch (error) {
