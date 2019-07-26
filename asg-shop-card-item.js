@@ -22,6 +22,7 @@ import '@spriteful/app-icons/app-icons.js';
 import '@spriteful/asg-icons/asg-icons.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-set.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-controls.js';
+import '@spriteful/asg-shop-card-shared-elements/asg-shop-sold-out-label.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 
 
@@ -47,9 +48,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
 
       _quantity: Number,
 
-      _cardImg: Object
-
-      
+      _cardImg: Object      
       
     };
   }
@@ -97,19 +96,6 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       'asg-shop-card-controls-card-changed',   
       this.__enterDescription.bind(this)
     );    
-  }
-
-
-  __computeOutOfStockClass(card) {
-    if (this.buylist) { return; }
-    if (!card) { return ''; }
-    const {foil, notFoil} = card;
-    const foilQtys    = Object.values(foil).map(obj => obj.qty);
-    const notFoilQtys = Object.values(notFoil).map(obj => obj.qty);
-    const qtys        = [...foilQtys, ...notFoilQtys];
-    const inStock     = qtys.some(qty => 
-                          typeof qty === 'number' && qty > 0);
-    return inStock ? '' : 'out-of-stock';
   }
 
   
