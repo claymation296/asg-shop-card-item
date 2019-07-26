@@ -8,7 +8,7 @@
     width:            100%;
     height:           160px;
     border-radius:    8px;   /* match magic card border-radius */
-    background-color: white; /*cannot read text in dark mode colors*/
+    background-color: white; /* cannot read text in dark mode */
     --dark-color:     var(--dark-vibrant-color, var(--dark-muted-color, var(--app-dark-color)));
     --accent-color:   var(--vibrant-color, var(--muted-color, var(--app-accent-color)));
   }
@@ -20,10 +20,6 @@
   #container {
     position: relative;
     height:   100%;
-  }
-
-  .out-of-stock {
-    opacity: 0.6;
   }
 
   .content {
@@ -177,7 +173,7 @@
 </style>
 
 
-<div id="container" class$="[[__computeOutOfStockClass(card, buylist)]]">
+<div id="container">
 
   <div id="description" class="content show-content">
     <div id="title" 
@@ -236,5 +232,9 @@
                             card="[[card]]"
                             parent="[[_cardImageParent]]">
   </asg-shop-card-item-image>
+
+  <asg-shop-sold-out-label buylist="[[buylist]]" 
+                           card="[[card]]">
+  </asg-shop-sold-out-label>
 
 </div>
