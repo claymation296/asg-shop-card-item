@@ -191,7 +191,8 @@
     </div>
     <div id="priceRange" 
          class="bold slide-up entry delay-5">
-      [[__computePriceRange(card)]]
+      <span hidden="[[isBuylist]]">[[__computePriceRange(card)]]</span>
+      <span hidden="[[!isBuylist]]">[[__computeBuylistPriceRange(card, buylistRules)]]</span>
     </div>
     <div id="descriptionMask" 
          class="fade-gradient-mask hide-fade-gradient-mask">
@@ -205,7 +206,8 @@
                               card="[[card]]" 
                               selector-from="top" 
                               search
-                              buylist=[[buylist]]>
+                              buylist-rules="[[buylistRules]]"
+                              is-buylist="[[isBuylist]]">
       </asg-shop-card-controls>
     </div>
 
@@ -233,7 +235,7 @@
                             parent="[[_cardImageParent]]">
   </asg-shop-card-item-image>
 
-  <asg-shop-sold-out-label buylist="[[buylist]]" 
+  <asg-shop-sold-out-label is-buylist="[[isBuylist]]"
                            card="[[card]]">
   </asg-shop-sold-out-label>
 

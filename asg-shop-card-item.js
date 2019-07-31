@@ -37,8 +37,10 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
   static get properties() {
     return {
 
-      buylist: {
-        type: Boolean,
+      buylistRules: Object,
+
+      isBuylist: {
+        type: Boolean, 
         value: false
       },
       // passed into asg-shop-card-item-image
@@ -63,7 +65,6 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
 
   connectedCallback() {
     super.connectedCallback();
-
     listen(
       this, 
       'asg-shop-card-item-image-hide-actions',      
@@ -98,7 +99,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
     );    
   }
 
-  
+   
   __computeMultiFaceTextClass(faces) {
     return faces ? 'show-multi-face-text' : '';
   }
@@ -131,9 +132,29 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
     return `$${low} - $${high}`;
   }
 
+  __computeBuylistPriceRange(card, buylistRules) {
+    if (!card || !buylistRules) { return ''; }
+    const buylistPercent = buylistRules.all.price;
+    const {foil, notFoil} = card;
+    // favor sale price over market price
+    const keys = Object.keys(foil); // foil and notFoil have same keys
+    const getPrices = (type, obj) => 
+                        keys.
+                          map(key      => obj[key][type]).
+                          filter(price => price && price !== '0').
+                          map(price    => Number(price) * buylistPercent / 100);
+
+    const foilPrices    = getPrices('price', foil);
+    const notFoilPrices = getPrices('price', notFoil);
+    const allPrices     = [...foilPrices, ...notFoilPrices];
+    const low  = Math.min(...allPrices).toFixed(2);
+    const high = Math.max(...allPrices).toFixed(2);
+    if (!high || high < 0.01) { return 'Pricing Not Available'; }
+    return `$${low} - $${high}`;
+  }
+
 
   __hideAddToCart(event) {
-    if (this.buylist) { return; }
     const {disabled} = event.detail;
     this._disableCart = disabled;
   }
@@ -144,7 +165,7 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       if (!this.$.detailsBtn.classList.contains('entry')) { return; }
       await this.clicked();
       const card = this.$.controls.addSelectedToCard(); // mixin
-      if (this.buylist) {
+      if (this.isBuylist) {
         this.fire('asg-shop-card-item-buylist-add-to-cart', {card, buylist: true});
         return;
       }
@@ -169,7 +190,15 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       const {x, y} = event;
       const image  = this._cardImg.getBoundingClientRect(); 
       const card   = this.$.controls.addSelectedToCard();
-      this.fire('asg-shop-card-item-open-details', {card, image, x, y});
+
+      this.fire('asg-shop-card-item-open-details', {
+        card, 
+        image, 
+        x, 
+        y, 
+        isBuylist: this.isBuylist, 
+        buylistRules: this.buylistRules
+      });
     }
     catch (error) {
       if (error === 'click debounced') { return; }
