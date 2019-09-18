@@ -191,12 +191,13 @@ class ASGShopCardItem extends AsgShopCardMixin(SpritefulElement) {
       const image  = this._cardImg.getBoundingClientRect(); 
       const card   = this.$.controls.addSelectedToCard();
 
-      this.fire('asg-shop-card-item-open-details', {
-        card, 
+      this.fire('open-overlay', {
+        card,
+        id: 'cardDetails',
         image, 
         x, 
         y, 
-        isBuylist: this.isBuylist, 
+        isBuylist:    this.isBuylist, 
         buylistRules: this.buylistRules
       });
     }
