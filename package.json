@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/asg-shop-card-item",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Mtg e-commerce card small layout",
   "main": "asg-shop-card-item.js",
   "scripts": {
