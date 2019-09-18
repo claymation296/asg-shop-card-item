@@ -380,13 +380,6 @@
   dependencies:
     "@webcomponents/shadycss" "^1.5.2"
 
-"@polymer/polymer@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.2.0.tgz#b41fddec4ecac63b12936b93726678d23add7afd"
-  integrity sha512-L6uV1oM6T6xbwbVx6t3biG5T2VSSB03LxnIrUd9M2pr6RkHVPFHJ37pC5MUwBAEhkGFJif7eks7fdMMSGZTeEQ==
-  dependencies:
-    "@webcomponents/shadycss" "^1.8.0"
-
 "@polymer/polymer@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.3.0.tgz#52a0665ac29654728e8f46e8ee178c02c49efdd0"
@@ -467,18 +460,18 @@
   dependencies:
     "@spriteful/utils" "^1.1.6"
 
-"@spriteful/asg-icons@^1.0.14":
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.14.tgz#4403e1dcde4f1aeacc62af9bdb7482cd407c42d8"
-  integrity sha512-VZRFHWVJPjKrGBjey8L8idIRTGc0bC0O++qIu7jLX8dO3fYRad/K33++LEy3KpjsNEHJ57x1/z8KWVt6D+I5IQ==
+"@spriteful/asg-icons@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.15.tgz#89d398de3e78c4f368ca4a50f4f6030130d19816"
+  integrity sha512-NJZ+HSxorYwZmBTD7mCl2PiY7D2GfM0gCnAhWzfKFVRNJFqvrRx3AXwwjKOxhzsaPX69Nq3qSl1iY5LboFB5Ew==
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.1"
-    "@polymer/polymer" "^3.2.0"
+    "@polymer/polymer" "^3.3.0"
 
-"@spriteful/asg-shop-card-shared-elements@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.11.tgz#dbc783e33967458f3915afe203f0ca641414c771"
-  integrity sha512-u/jQCqxca4BvnlAOYXaMMBDdmvvAoeJvOUZIEmzf3EESg5lCSoFBUI2WPVq2w0cdMIijZqT0camnoz/furHdjQ==
+"@spriteful/asg-shop-card-shared-elements@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.13.tgz#bcc3c56c60d214601419ac9b2758719afe2b98bc"
+  integrity sha512-MXXsK1t9RXMLK3BEHp7r5pXWEY5CKFgiAxgGXSObDCbv/1/0tt7rNnYycJKjn2kx0czwzox+VFOJev/7BTKcAw==
   dependencies:
     "@polymer/iron-icon" "^3.0.1"
     "@polymer/iron-iconset-svg" "^3.0.1"
@@ -574,7 +567,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.9.tgz#2e8d678039d27943ce53a1913386133227fd9066"
   integrity sha512-NelG/dSahlXYtSoVPErrp06tYFrvzj8XLWmKA+X8x0W//4MqbUyZu++giUG/v0bjAT6/Qxa8IjodrfdACyb0Fg==
 
-"@webcomponents/shadycss@^1.5.2", "@webcomponents/shadycss@^1.8.0":
+"@webcomponents/shadycss@^1.5.2":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.0.tgz#8450465037370d4f5c32e801bb2554a7cf2f5037"
   integrity sha512-g8Xa+6RSEME4g/wLJW4YII0eq15rvXp76RxPAuv7hx+Bdoi7GzZJ/EoZOUfyIbqAsQbII1TcWD4/+Xhs5NcM1w==
